@@ -2,15 +2,15 @@
 
 def binarysearch(searchSet, key):
 	lo, hi = 0, len(searchSet)
-	mid = (hi - lo) // 2 ## note that integer division gives the same result for implementations in both python3 and python2
-	while lo <= hi:
-		if searchSet[mid] == key:
-			return mid
-		else if searchSet[mid] > key:
+	
+	while lo < hi:
+		mid = (lo + hi) // 2 ## note integer division
+		midval = searchSet[mid]
+		if midval < key:
+			lo = mid + 1
+		elif midval > key:
 			hi = mid
-			mid = (hi - lo) // 2
-		else 
-			lo = mid
-			mid = (hi - lo) // 2
+		else: 
+			return mid
 	return -1
 
